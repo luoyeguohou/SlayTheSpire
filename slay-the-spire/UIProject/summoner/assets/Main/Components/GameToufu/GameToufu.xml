@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,1620">
+  <displayList>
+    <graph id="n0_jviu" name="n0" xy="0,0" size="750,1620" type="rect" lineSize="0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <list id="n6_jviu" name="lstItem" xy="109,446" size="639,1443" scale="0.8,0.8" overflow="scroll" defaultItem="ui://8gl2b56tjviu6">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n7_dg4z" name="n7" xy="56,36" size="629,147" fontSize="25" autoSize="none" text="可以问的问题：&#xA;豆腐公主在哪里？&#xA;你的角色卡是谁?&#xA;某一位玩家的角色卡是谁?">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <list id="n14_dg4z" name="n14" xy="126,201" size="485,238" layout="flow_hz" overflow="scroll" lineItemCount="4" defaultItem="ui://8gl2b56tdg4za">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item/>
+      <item controllers="identity,1"/>
+      <item controllers="identity,2"/>
+      <item controllers="identity,3"/>
+      <item controllers="identity,4"/>
+      <item controllers="identity,5"/>
+      <item controllers="identity,6"/>
+      <item controllers="identity,7"/>
+    </list>
+  </displayList>
+</component>

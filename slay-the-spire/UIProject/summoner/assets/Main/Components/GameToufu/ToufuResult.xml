@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,1620">
+  <displayList>
+    <graph id="n11_jviu" name="bg" xy="0,0" size="750,1620" type="rect" lineSize="0" fillColor="#00000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <image id="n13_fdzi" name="n13" src="9lq7h" fileName="Images/新建项目 (2).png" xy="136,475" color="#e0e0e0">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <text id="n8_jviu" name="txtResult" xy="166,513" size="418,121" fontSize="43" color="#272245" align="center" vAlign="middle" vars="true" autoSize="none" text="选择了{site=空位置1}&#xA;ta的身份是{identity=豆腐公主}">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <component id="n9_jviu" name="btnConfirm" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="272,903" size="206,79">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <Button title="确定" titleFontSize="35"/>
+    </component>
+    <text id="n12_ph7a" name="txtGoldChange" xy="227,642" size="296,143" fontSize="27" color="#272245" align="center" vAlign="middle" vars="true" autoSize="none" text="落叶过后金币+2&#xA;落叶过后金币+2&#xA;落叶过后金币+2">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

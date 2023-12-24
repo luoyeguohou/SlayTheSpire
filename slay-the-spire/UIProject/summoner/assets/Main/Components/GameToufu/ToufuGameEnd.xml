@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,1620">
+  <displayList>
+    <graph id="n11_jviu" name="bg" xy="0,0" size="750,1620" type="rect" lineSize="0" fillColor="#00000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <image id="n13_fdzi" name="n13" src="9lq7h" fileName="Images/新建项目 (2).png" xy="100,278" size="550,871" color="#e0e0e0">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <text id="n8_jviu" name="n8" xy="133,283" size="483,142" fontSize="61" color="#272245" align="center" vAlign="middle" autoSize="none" text="游戏结束">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <component id="n9_jviu" name="btnConfirm" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="272,1010" size="206,79">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <Button title="确定" titleFontSize="35"/>
+    </component>
+    <text id="n12_ph7a" name="txtResult" xy="187,427" size="375,451" fontSize="38" color="#272245" align="center" vAlign="middle" autoSize="none" text="落叶过后 金币 3&#xA;落叶过后 金币 3&#xA;落叶过后 金币 3&#xA;落叶过后 金币 3&#xA;落叶过后 金币 3&#xA;落叶过后 金币 3&#xA;落叶过后 金币 3&#xA;落叶过后 金币 3">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

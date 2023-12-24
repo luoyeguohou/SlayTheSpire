@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,1620">
+  <controller name="isHost" pages="0,,1," selected="0"/>
+  <displayList>
+    <graph id="n0_jviu" name="n0" xy="0,0" size="750,1620" type="rect" lineSize="0" fillColor="#fff2f2f2">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <list id="n5_jviu" name="lstItem" xy="123,295" size="522,1052" layout="flow_hz" overflow="scroll" lineGap="46" colGap="61" lineItemCount="2" defaultItem="ui://8gl2b56tjviu4">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n6_jviu" name="btnStartGame" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="175,1303" size="398,113">
+      <gearDisplay controller="isHost" pages="1"/>
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <Button titleFontSize="49"/>
+    </component>
+    <component id="n7_ykza" name="btnExit" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="3,47" size="227,64">
+      <Button title="离开房间" titleFontSize="28"/>
+    </component>
+    <text id="n8_ph7a" name="txtRoom" xy="395,35" size="329,97" fontSize="41" color="#272245" align="center" vAlign="middle" autoSize="none" text="房间号：1734">
+      <relation target="" sidePair="right-right"/>
+    </text>
+  </displayList>
+</component>

@@ -1,0 +1,17 @@
+{
+  /* Base configuration. Do not edit this field. */
+  "extends": "./temp/tsconfig.cocos.json",
+
+  /* Add your custom configuration here. */
+  "compilerOptions": {
+    "lib": [
+      "ES2019",
+      "DOM",
+    ],
+    "paths": {
+      //"fp-ts/*":["./assets/scripts/third-party/fp-ts/*"],// not work on broswer
+    },
+    "allowSyntheticDefaultImports": true,
+    "strict": false
+  }
+}

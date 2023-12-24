@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="288,231">
+  <controller name="isPrince" homePageType="specific" homePage="1" pages="0,,1," selected="1"/>
+  <controller name="identity" pages="0,,1,,2,,3,,4,,5,,6,,7," selected="3"/>
+  <controller name="isEmp" pages="0,,1," selected="0"/>
+  <displayList>
+    <image id="n32_fdzi" name="n32" src="9lq7h" fileName="Images/新建项目 (2).png" xy="3,2" size="568,462" scale="0.5,0.5" color="#383353"/>
+    <image id="n33_fdzi" name="n33" src="9lq7h" fileName="Images/新建项目 (2).png" xy="10,9" size="540,340" scale="0.5,0.5" color="#b8b8b8"/>
+    <image id="n31_fdzi" name="n31" src="9lq7h" fileName="Images/新建项目 (2).png" xy="11,56" size="540,340" scale="0.5,0.5" color="#d2d2d2"/>
+    <loader id="n24_fdzi" name="n24" xy="19,66" size="40,40" url="ui://8gl2b56tfdzis" align="center" vAlign="middle" fill="scale">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearIcon controller="identity" pages="2,3,4,5,6,7" values="ui://8gl2b56tfdzir|ui://8gl2b56tfdzis|ui://8gl2b56tfdzir|ui://8gl2b56tfdzir|ui://8gl2b56tfdzir|ui://8gl2b56tfdzir" default="ui://8gl2b56tfdzit"/>
+      <gearDisplay2 controller="identity" pages="1,2,3,4,5,6,7" condition="0"/>
+    </loader>
+    <loader id="n25_fdzi" name="n25" xy="152,177" size="39,39" url="ui://8gl2b56tfdzis" align="center" vAlign="middle" fill="scale">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearIcon controller="identity" pages="3,4,5,6,7" values="ui://8gl2b56tfdzis|ui://8gl2b56tfdzis|ui://8gl2b56tfdzir|ui://8gl2b56tfdzir|ui://8gl2b56tfdzir" default="ui://8gl2b56tfdzit"/>
+    </loader>
+    <image id="n26_fdzi" name="n26" src="fdziu" fileName="Images/identity/新建项目 (6).png" xy="197,181" size="25,30">
+      <gearDisplay controller="isPrince" pages="0"/>
+    </image>
+    <text id="n27_fdzi" name="n27" xy="224,168" size="49,54" fontSize="31" color="#272245" vAlign="middle" autoSize="none" text="+1">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearText controller="identity" pages="2,3,4,5,6,7" values="+1|+1|+1|+1|+1|+1" default="+2"/>
+    </text>
+    <text id="n28_fdzi" name="n28" xy="19,107" size="211,66" fontSize="50" color="#272245" vAlign="middle" autoSize="none" text="豆腐女王">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearText controller="identity" pages="0,1,2,4,5,6,7" values="麻薯王子|豆腐公主|豆腐厨师|豆腐大臣|豆腐侍卫|布丁间谍|豆腐女仆" default="豆腐女王"/>
+    </text>
+    <text id="n29_fdzi" name="n29" xy="233,66" size="32,54" fontSize="31" color="#272245" align="right" vAlign="middle" autoSize="none" text="F">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearText controller="identity" pages="3,4,5,6,7" values="F|F|F|?|?" default="T"/>
+    </text>
+    <text id="n34_fdzi" name="txtName" xy="16,2" size="182,66" fontSize="37" color="#272245" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="1. gaohc"/>
+    <component id="n35_tdob" name="btnChoose" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="70,135">
+      <gearDisplay controller="isPrince" pages="1"/>
+      <gearDisplay2 controller="identity" pages="1,2,3,4,5,6,7" condition="0"/>
+      <Button title="ta是公主"/>
+    </component>
+    <image id="n36_tdob" name="n36" src="fdziu" fileName="Images/identity/新建项目 (6).png" xy="198,23" size="25,30">
+      <gearDisplay controller="isEmp" pages="0"/>
+    </image>
+    <text id="n37_tdob" name="txtGold" xy="226,10" size="49,54" fontSize="31" color="#272245" vAlign="middle" autoSize="none" text="15">
+      <gearDisplay controller="isEmp" pages="0"/>
+    </text>
+  </displayList>
+</component>

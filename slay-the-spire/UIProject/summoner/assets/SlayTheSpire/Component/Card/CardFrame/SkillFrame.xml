@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,1024">
+  <controller name="rare" pages="0,common,1,uncommon,2,rare" selected="1"/>
+  <displayList>
+    <loader id="n8_dip3" name="n8" xy="0,0" size="1024,1024" url="ui://dk6sz05tilh7e">
+      <gearIcon controller="rare" pages="0,1" values="ui://dk6sz05tilh7c|ui://dk6sz05tilh7e" default="ui://dk6sz05tilh7d"/>
+    </loader>
+  </displayList>
+</component>

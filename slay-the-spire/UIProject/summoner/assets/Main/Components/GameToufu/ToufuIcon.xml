@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="108,117">
+  <controller name="identity" exported="true" pages="0,,1,,2,,3,,4,,5,,6,,7," selected="7"/>
+  <displayList>
+    <graph id="n8_dg4z" name="n8" xy="0,0" size="108,115" type="rect"/>
+    <text id="n9_dg4z" name="n9" xy="12,26" size="92,35" fontSize="20" autoSize="none" text="豆腐女仆">
+      <gearText controller="identity" pages="0,1,2,3,4,5,6,7" values="麻薯王子|豆腐公主|豆腐厨师|豆腐女王|豆腐大臣|豆腐侍卫|布丁间谍|豆腐女仆"/>
+    </text>
+    <graph id="n10_dg4z" name="imgSelf" xy="2,2" size="21,20" type="rect" lineSize="0" fillColor="#ff00ff00">
+      <gearDisplay controller="identity" pages="1,2,3,4,5,6,7"/>
+      <gearColor controller="identity" pages="2,3,4,5,6,7" values="#00ff33|#0066ff|#00ff33|#00ff00|#00ff00|#00ff00" default="#cc0000"/>
+    </graph>
+    <text id="n11_dg4z" name="n11" xy="62,0" size="46,35" fontSize="20" align="right" autoSize="none" text="随意">
+      <gearText controller="identity" pages="0,3,4,5,6,7" values="|假话|假话|假话|随意|随意" default="真话"/>
+    </text>
+    <graph id="n12_dg4z" name="imgwin" xy="22,88" size="21,20" type="rect" lineSize="0" fillColor="#ff00ff00">
+      <gearColor controller="identity" pages="3,4,5,6,7" values="#0066ff|#0066ff|#0066ff|#00ff00|#00ff00" default="#cc0000"/>
+    </graph>
+    <text id="n13_dg4z" name="n13" xy="31,82" size="76,35" fontSize="20" align="right" autoSize="none" text="金币*1">
+      <gearText controller="identity" pages="0,1" values="金币*2|金币*2" default="金币*1"/>
+    </text>
+  </displayList>
+</component>

@@ -1,0 +1,11 @@
+export class <%CamelCaseClassName%> {
+    constructor(cfg: any) {
+    }
+}
+
+export function create<%CamelCaseClassName%> (datas: Array<any>): Map < number, <%CamelCaseClassName%> > {
+    const ret = new Map < number, <%CamelCaseClassName%>> ();
+    datas.forEach(data => ret.set(data.id, new <%CamelCaseClassName%> (data)));
+    return ret;
+}
+

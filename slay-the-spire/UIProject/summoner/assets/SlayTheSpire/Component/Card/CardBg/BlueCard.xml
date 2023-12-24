@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="608,838">
+  <controller name="cType" exported="true" pages="0,atk,1,skill,2,power" selected="0"/>
+  <displayList>
+    <loader id="n0_ilh7" name="n0" xy="304,419" pivot="0.5,0.5" anchor="true" size="1024,1025" url="ui://dk6sz05tilh7p" fill="scaleFree">
+      <gearIcon controller="cType" pages="0,1,2" values="ui://dk6sz05tilh7p|ui://dk6sz05tilh711|ui://dk6sz05tilh7u"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+  </displayList>
+</component>

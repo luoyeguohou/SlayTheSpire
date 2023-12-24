@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" overflow="scroll">
+  <displayList>
+    <image id="n4_ju7s" name="n4" src="icsxq3" fileName="NewImages/map/mapBot.png" xy="0,2160"/>
+    <image id="n3_ju7s" name="n3" src="icsxq5" fileName="NewImages/map/mapMid.png" xy="963,1620" pivot="0.5,0.5" anchor="true"/>
+    <image id="n2_ju7s" name="n2" src="icsxq8" fileName="NewImages/map/mapTop.png" xy="0,0"/>
+    <graph id="n5_u26w" name="leftTop" xy="523,494" pivot="0.5,0.5" anchor="true" size="100,100" visible="false" type="rect"/>
+    <component id="n8_u26w" name="boss" src="u26wfy" fileName="Component/Map/BossMapItem.xml" xy="935,465" pivot="0.5,0.7" anchor="true"/>
+    <graph id="n13_u26w" name="rightBot" xy="1389,2958" pivot="0.5,0.5" anchor="true" size="100,100" visible="false" type="rect"/>
+  </displayList>
+</component>

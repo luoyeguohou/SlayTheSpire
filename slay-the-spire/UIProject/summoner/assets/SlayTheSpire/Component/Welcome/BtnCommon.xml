@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="275,115" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n4_ju7s" name="n4" src="icsxii" fileName="NewImages/mainMenu/menu_option_highlight.png" xy="-80,5" alpha="0">
+      <gearXY controller="button" pages="0" values="-80,5" default="-26,5" tween="true" duration=".5"/>
+      <gearLook controller="button" pages="0" values="0,0,0,0" default="1,0,0,0" tween="true" duration=".5"/>
+    </image>
+    <text id="n3_ju7s" name="title" xy="6,-1" size="373,115" fontSize="53" color="#ffffff" vAlign="middle" autoSize="none" strokeColor="#333333" strokeSize="4" text="开始游戏">
+      <gearXY controller="button" pages="0" values="6,-1" default="46,0" tween="true" duration=".5"/>
+    </text>
+  </displayList>
+  <Button/>
+</component>

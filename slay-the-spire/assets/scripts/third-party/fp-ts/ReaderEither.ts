@@ -1,0 +1,962 @@
+/**
+ * @since 3.0.0
+ */
+import type { Alt3, Alt3C } from './Alt'
+import type { Applicative3, Applicative3C } from './Applicative'
+import { ap as ap_, apFirst as apFirst_, Apply3, apS as apS_, apSecond as apSecond_, apT as apT_ } from './Apply'
+import type { Bifunctor3 } from './Bifunctor'
+import { bind as bind_, Chain3, chainFirst as chainFirst_ } from './Chain'
+import { compact as compact_, Compactable3C, separate as separate_ } from './Compactable'
+import * as E from './Either'
+import * as ET from './EitherT'
+import { filter, Filterable3C, filterMap, partition, partitionMap } from './Filterable'
+import {
+  chainEitherK as chainEitherK_,
+  chainOptionK as chainOptionK_,
+  filterOrElse as filterOrElse_,
+  FromEither3,
+  fromEitherK as fromEitherK_,
+  fromOption as fromOption_,
+  fromOptionK as fromOptionK_,
+  fromPredicate as fromPredicate_,
+  chainFirstEitherK as chainFirstEitherK_
+} from './FromEither'
+import {
+  ask as ask_,
+  asks as asks_,
+  chainReaderK as chainReaderK_,
+  chainFirstReaderK as chainFirstReaderK_,
+  FromReader3,
+  fromReaderK as fromReaderK_
+} from './FromReader'
+import { flow, identity, SK } from './function'
+import { bindTo as bindTo_, flap as flap_, Functor3, tupled as tupled_ } from './Functor'
+import * as _ from './internal'
+import type { Monad3 } from './Monad'
+import type { Monoid } from './Monoid'
+import type { Pointed3 } from './Pointed'
+import type { Predicate } from './Predicate'
+import * as R from './Reader'
+import type { ReadonlyNonEmptyArray } from './ReadonlyNonEmptyArray'
+import type { Refinement } from './Refinement'
+import type { Semigroup } from './Semigroup'
+
+
+// -------------------------------------------------------------------------------------
+// model
+// -------------------------------------------------------------------------------------
+
+/**
+ * @category model
+ * @since 3.0.0
+ */
+export interface ReaderEither<R, E, A> extends R.Reader<R, E.Either<E, A>> { }
+
+// -------------------------------------------------------------------------------------
+// constructors
+// -------------------------------------------------------------------------------------
+
+/**
+ * @category constructors
+ * @since 3.0.0
+ */
+export const left: <E, R, A = never>(e: E) => ReaderEither<R, E, A> =
+  /*#__PURE__*/
+  ET.left(R.Pointed)
+
+/**
+ * @category constructors
+ * @since 3.0.0
+ */
+export const right: <A, R, E = never>(a: A) => ReaderEither<R, E, A> =
+  /*#__PURE__*/
+  ET.right(R.Pointed)
+
+/**
+ * @category constructors
+ * @since 3.0.0
+ */
+export const rightReader: <R, A, E = never>(ma: R.Reader<R, A>) => ReaderEither<R, E, A> =
+  /*#__PURE__*/
+  ET.rightF(R.Functor)
+
+/**
+ * @category constructors
+ * @since 3.0.0
+ */
+export const leftReader: <R, E, A = never>(me: R.Reader<R, E>) => ReaderEither<R, E, A> =
+  /*#__PURE__*/
+  ET.leftF(R.Functor)
+
+/**
+ * Less strict version of [`asksReaderEitherK`](#asksreadereitherk).
+ *
+ * @category constructors
+ * @since 3.0.0
+ */
+export const asksReaderEitherW: <R1, R2, E, A>(f: (r1: R1) => ReaderEither<R2, E, A>) => ReaderEither<R1 & R2, E, A> =
+  R.asksReaderW
+
+/**
+ * @category constructors
+ * @since 3.0.0
+ */
+export const asksReaderEither: <R, E, A>(
+  f: (r: R) => ReaderEither<R, E, A>
+) => ReaderEither<R, E, A> = asksReaderEitherW
+
+// -------------------------------------------------------------------------------------
+// natural transformations
+// -------------------------------------------------------------------------------------
+
+/**
+ * @category natural transformations
+ * @since 3.0.0
+ */
+export const fromEither: FromEither3<URI>['fromEither'] = R.of
+
+/**
+ * @category natural transformations
+ * @since 3.0.0
+ */
+export const fromReader: FromReader3<URI>['fromReader'] = rightReader
+
+// -------------------------------------------------------------------------------------
+// destructors
+// -------------------------------------------------------------------------------------
+
+/**
+ * @category destructors
+ * @since 3.0.0
+ */
+export const match: <E, B, A>(
+  onLeft: (e: E) => B,
+  onRight: (a: A) => B
+) => <R>(ma: ReaderEither<R, E, A>) => R.Reader<R, B> =
+  /*#__PURE__*/
+  ET.match(R.Functor)
+
+/**
+ * Less strict version of [`match`](#match).
+ *
+ * @category destructors
+ * @since 3.0.0
+ */
+export const matchW: <E, B, A, C>(
+  onLeft: (e: E) => B,
+  onRight: (a: A) => C
+) => <R>(ma: R.Reader<R, E.Either<E, A>>) => R.Reader<R, B | C> = match as any
+
+/**
+ * @category destructors
+ * @since 3.0.0
+ */
+export const matchE: <E, R, B, A>(
+  onLeft: (e: E) => R.Reader<R, B>,
+  onRight: (a: A) => R.Reader<R, B>
+) => (ma: ReaderEither<R, E, A>) => R.Reader<R, B> =
+  /*#__PURE__*/
+  ET.matchE(R.Monad)
+
+/**
+ * Less strict version of [`matchE`](#matchE).
+ *
+ * @category destructors
+ * @since 3.0.0
+ */
+export const matchEW: <E, R2, B, A, R3, C>(
+  onLeft: (e: E) => R.Reader<R2, B>,
+  onRight: (a: A) => R.Reader<R3, C>
+) => <R1>(ma: R.Reader<R1, E.Either<E, A>>) => R.Reader<R1 & R2 & R3, B | C> = matchE as any
+
+/**
+ * @category destructors
+ * @since 3.0.0
+ */
+export const getOrElse: <E, A>(onLeft: (e: E) => A) => <R>(ma: ReaderEither<R, E, A>) => R.Reader<R, A> =
+  /*#__PURE__*/
+  ET.getOrElse(R.Functor)
+
+/**
+ * Less strict version of [`getOrElse`](#getOrElse).
+ *
+ * @category destructors
+ * @since 3.0.0
+ */
+export const getOrElseW: <E, B>(
+  onLeft: (e: E) => B
+) => <R, A>(ma: ReaderEither<R, E, A>) => R.Reader<R, A | B> = getOrElse as any
+
+/**
+ * @category destructors
+ * @since 3.0.0
+ */
+export const getOrElseE: <E, R, A>(onLeft: (e: E) => R.Reader<R, A>) => (ma: ReaderEither<R, E, A>) => R.Reader<R, A> =
+  /*#__PURE__*/
+  ET.getOrElseE(R.Monad)
+
+/**
+ * Less strict version of [`getOrElseE`](#getOrElseE).
+ *
+ * @category destructors
+ * @since 3.0.0
+ */
+export const getOrElseEW: <E, R2, B>(
+  onLeft: (e: E) => R.Reader<R2, B>
+) => <R1, A>(ma: ReaderEither<R1, E, A>) => R.Reader<R1 & R2, A | B> = getOrElseE as any
+
+// -------------------------------------------------------------------------------------
+// interop
+// -------------------------------------------------------------------------------------
+
+/**
+ * @category interop
+ * @since 3.0.0
+ */
+export const toUnion: <R, E, A>(fa: ReaderEither<R, E, A>) => R.Reader<R, E | A> =
+  /*#__PURE__*/
+  ET.toUnion(R.Functor)
+
+// -------------------------------------------------------------------------------------
+// combinators
+// -------------------------------------------------------------------------------------
+
+/**
+ * Changes the value of the local context during the execution of the action `ma` (similar to `Contravariant`'s
+ * `contramap`).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const local: <R2, R1>(f: (r2: R2) => R1) => <E, A>(ma: ReaderEither<R1, E, A>) => ReaderEither<R2, E, A> =
+  R.local
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const orElse: <E1, R, E2, A>(
+  onLeft: (e: E1) => ReaderEither<R, E2, A>
+) => (ma: ReaderEither<R, E1, A>) => ReaderEither<R, E2, A> =
+  /*#__PURE__*/
+  ET.orElse(R.Monad)
+
+/**
+ * Less strict version of [`orElse`](#orElse).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const orElseW: <E1, R1, E2, B>(
+  onLeft: (e: E1) => ReaderEither<R1, E2, B>
+) => <R2, A>(ma: ReaderEither<R2, E1, A>) => ReaderEither<R1 & R2, E2, A | B> = orElse as any
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const orElseFirst: <E, R, B>(
+  onLeft: (e: E) => ReaderEither<R, E, B>
+) => <A>(ma: ReaderEither<R, E, A>) => ReaderEither<R, E, A> =
+  /*#__PURE__*/
+  ET.orElseFirst(R.Monad)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const orElseFirstW: <E1, R2, E2, B>(
+  onLeft: (e: E1) => ReaderEither<R2, E2, B>
+) => <R1, A>(ma: ReaderEither<R1, E1, A>) => ReaderEither<R1 & R2, E1 | E2, A> = orElseFirst as any
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const orLeft: <E1, R, E2>(
+  onLeft: (e: E1) => R.Reader<R, E2>
+) => <A>(fa: ReaderEither<R, E1, A>) => ReaderEither<R, E2, A> =
+  /*#__PURE__*/
+  ET.orLeft(R.Monad)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const swap: <R, E, A>(ma: ReaderEither<R, E, A>) => ReaderEither<R, A, E> =
+  /*#__PURE__*/
+  ET.swap(R.Functor)
+
+/**
+ * `map` can be used to turn functions `(a: A) => B` into functions `(fa: F<A>) => F<B>` whose argument and return types
+ * use the type constructor `F` to represent some computational context.
+ *
+ * @category Functor
+ * @since 3.0.0
+ */
+export const map: Functor3<URI>['map'] =
+  /*#__PURE__*/
+  ET.map(R.Functor)
+
+/**
+ * Map a pair of functions over the two last type arguments of the bifunctor.
+ *
+ * @category Bifunctor
+ * @since 3.0.0
+ */
+export const bimap: Bifunctor3<URI>['bimap'] =
+  /*#__PURE__*/
+  ET.bimap(R.Functor)
+
+/**
+ * Map a function over the second type argument of a bifunctor.
+ *
+ * @category Bifunctor
+ * @since 3.0.0
+ */
+export const mapLeft: Bifunctor3<URI>['mapLeft'] =
+  /*#__PURE__*/
+  ET.mapLeft(R.Functor)
+
+/**
+ * Apply a function to an argument under a type constructor.
+ *
+ * @category Apply
+ * @since 3.0.0
+ */
+export const ap: Apply3<URI>['ap'] =
+  /*#__PURE__*/
+  ET.ap(R.Apply)
+
+/**
+ * Less strict version of [`ap`](#ap).
+ *
+ * @category Apply
+ * @since 3.0.0
+ */
+export const apW: <R2, E2, A>(
+  fa: ReaderEither<R2, E2, A>
+) => <R1, E1, B>(fab: ReaderEither<R1, E1, (a: A) => B>) => ReaderEither<R1 & R2, E1 | E2, B> = ap as any
+
+/**
+ * @category Pointed
+ * @since 3.0.0
+ */
+export const of: <A, R, E = never>(a: A) => ReaderEither<R, E, A> = right
+
+/**
+ * Composes computations in sequence, using the return value of one computation to determine the next computation.
+ *
+ * @category Chain
+ * @since 3.0.0
+ */
+export const chain: Chain3<URI>['chain'] =
+  /*#__PURE__*/
+  ET.chain(R.Monad)
+
+/**
+ * Less strict version of [`chain`](#chain).
+ *
+ * @category Chain
+ * @since 3.0.0
+ */
+export const chainW: <A, R2, E2, B>(
+  f: (a: A) => ReaderEither<R2, E2, B>
+) => <R1, E1>(ma: ReaderEither<R1, E1, A>) => ReaderEither<R1 & R2, E1 | E2, B> = chain as any
+
+/**
+ * Less strict version of [`flatten`](#flatten).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const flattenW: <R1, E1, R2, E2, A>(
+  mma: ReaderEither<R1, E1, ReaderEither<R2, E2, A>>
+) => ReaderEither<R1 & R2, E1 | E2, A> =
+  /*#__PURE__*/
+  chainW(identity)
+
+/**
+ * Derivable from `Chain`.
+ *
+ * @category derivable combinators
+ * @since 3.0.0
+ */
+export const flatten: <R, E, A>(mma: ReaderEither<R, E, ReaderEither<R, E, A>>) => ReaderEither<R, E, A> = flattenW
+
+/**
+ * Identifies an associative operation on a type constructor. It is similar to `Semigroup`, except that it applies to
+ * types of kind `* -> *`.
+ *
+ * @category Alt
+ * @since 3.0.0
+ */
+export const alt: Alt3<URI>['alt'] =
+  /*#__PURE__*/
+  ET.alt(R.Monad)
+
+/**
+ * Less strict version of [`alt`](#alt).
+ *
+ * @category Alt
+ * @since 3.0.0
+ */
+export const altW: <R2, E2, B>(
+  second: () => ReaderEither<R2, E2, B>
+) => <R1, E1, A>(first: ReaderEither<R1, E1, A>) => ReaderEither<R1 & R2, E2, A | B> = alt as any
+
+// -------------------------------------------------------------------------------------
+// instances
+// -------------------------------------------------------------------------------------
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export type URI = 'ReaderEither'
+
+declare module './HKT' {
+  interface URItoKind3<R, E, A> {
+    readonly ReaderEither: ReaderEither<R, E, A>
+  }
+}
+
+/**
+ * The default [`Applicative`](#applicative) instance returns the first error, if you want to
+ * get all errors you need to provide an way to concatenate them via a `Semigroup`.
+ *
+ * See [`getApplicativeValidation`](./E.Either.ts.html#getapplicativevalidation).
+ *
+ * @category instances
+ * @since 3.0.0
+ */
+export const getApplicativeReaderValidation = <E>(S: Semigroup<E>): Applicative3C<URI, E> => ({
+  map,
+  ap: ap_(R.Apply, E.getApplicativeValidation(S)),
+  of
+})
+
+/**
+ * The default [`Alt`](#alt) instance returns the last error, if you want to
+ * get all errors you need to provide an way to concatenate them via a `Semigroup`.
+ *
+ * See [`getAltValidation`](./E.Either.ts.html#getaltvalidation).
+ *
+ * @category instances
+ * @since 3.0.0
+ */
+export const getAltReaderValidation = <E>(S: Semigroup<E>): Alt3C<URI, E> => {
+  return {
+    map,
+    alt: ET.altValidation(R.Monad, S)
+  }
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const getCompactable = <E>(M: Monoid<E>): Compactable3C<URI, E> => {
+  const C = E.getCompactable(M)
+  return {
+    compact: compact_(R.Functor, C),
+    separate: separate_(R.Functor, C, E.Functor)
+  }
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const getFilterable = <E>(M: Monoid<E>): Filterable3C<URI, E> => {
+  const F = E.getFilterable(M)
+  return {
+    filter: filter(R.Functor, F),
+    filterMap: filterMap(R.Functor, F),
+    partition: partition(R.Functor, F),
+    partitionMap: partitionMap(R.Functor, F)
+  }
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Functor: Functor3<URI> = {
+  map
+}
+
+/**
+ * Derivable from `Functor`.
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const flap =
+  /*#__PURE__*/
+  flap_(Functor)
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Pointed: Pointed3<URI> = {
+  of
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Apply: Apply3<URI> = {
+  map,
+  ap
+}
+
+/**
+ * Combine two effectful actions, keeping only the result of the first.
+ *
+ * Derivable from `Apply`.
+ *
+ * @category derivable combinators
+ * @since 3.0.0
+ */
+export const apFirst =
+  /*#__PURE__*/
+  apFirst_(Apply)
+
+/**
+ * Less strict version of [`apFirst`](#apfirst)
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const apFirstW: <R2, E2, B>(
+  second: ReaderEither<R2, E2, B>
+) => <R1, E1, A>(first: ReaderEither<R1, E1, A>) => ReaderEither<R1 & R2, E1 | E2, A> = apFirst as any
+
+/**
+ * Combine two effectful actions, keeping only the result of the second.
+ *
+ * Derivable from `Apply`.
+ *
+ * @category derivable combinators
+ * @since 3.0.0
+ */
+export const apSecond =
+  /*#__PURE__*/
+  apSecond_(Apply)
+
+/**
+ * Less strict version of [`apSecond`](#apsecond)
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const apSecondW: <R2, E2, B>(
+  second: ReaderEither<R2, E2, B>
+) => <R1, E1, A>(first: ReaderEither<R1, E1, A>) => ReaderEither<R1 & R2, E1 | E2, B> = apSecond as any
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Applicative: Applicative3<URI> = {
+  map,
+  ap,
+  of
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Chain: Chain3<URI> = {
+  map,
+  chain
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Monad: Monad3<URI> = {
+  map,
+  of,
+  chain
+}
+
+/**
+ * Composes computations in sequence, using the return value of one computation to determine the next computation and
+ * keeping only the result of the first.
+ *
+ * Derivable from `Chain`.
+ *
+ * @category derivable combinators
+ * @since 3.0.0
+ */
+export const chainFirst =
+  /*#__PURE__*/
+  chainFirst_(Chain)
+
+/**
+ * Less strict version of [`chainFirst`](#chainFirst)
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainFirstW: <A, R2, E2, B>(
+  f: (a: A) => ReaderEither<R2, E2, B>
+) => <R1, E1>(first: ReaderEither<R1, E1, A>) => ReaderEither<R1 & R2, E1 | E2, A> = chainFirst as any
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Bifunctor: Bifunctor3<URI> = {
+  bimap,
+  mapLeft
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const Alt: Alt3<URI> = {
+  map,
+  alt
+}
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const FromReader: FromReader3<URI> = {
+  fromReader
+}
+
+/**
+ * Reads the current context.
+ *
+ * @category constructors
+ * @since 3.0.0
+ */
+export const ask: <R, E = never>() => ReaderEither<R, E, R> =
+  /*#__PURE__*/
+  ask_(FromReader)
+
+/**
+ * Projects a value from the global context in a `ReaderEither`.
+ *
+ * @category constructors
+ * @since 3.0.0
+ */
+export const asks: <R, A, E = never>(f: (r: R) => A) => ReaderEither<R, E, A> =
+  /*#__PURE__*/
+  asks_(FromReader)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const fromReaderK: <A extends ReadonlyArray<unknown>, R, B>(
+  f: (...a: A) => R.Reader<R, B>
+) => <E = never>(...a: A) => ReaderEither<R, E, B> =
+  /*#__PURE__*/
+  fromReaderK_(FromReader)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainReaderK: <A, R, B>(
+  f: (a: A) => R.Reader<R, B>
+) => <E = never>(ma: ReaderEither<R, E, A>) => ReaderEither<R, E, B> =
+  /*#__PURE__*/
+  chainReaderK_(FromReader, Chain)
+
+/**
+ * Less strict version of [`chainReaderK`](#chainReaderK).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainReaderKW: <A, R2, B>(
+  f: (a: A) => R.Reader<R2, B>
+) => <R1, E = never>(ma: ReaderEither<R1, E, A>) => ReaderEither<R1 & R2, E, B> = chainReaderK as any
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainFirstReaderK: <A, R, B>(
+  f: (a: A) => R.Reader<R, B>
+) => <E = never>(ma: ReaderEither<R, E, A>) => ReaderEither<R, E, A> =
+  /*#__PURE__*/
+  chainFirstReaderK_(FromReader, Chain)
+
+/**
+ * Less strict version of [`chainReaderK`](#chainReaderK).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainFirstReaderKW: <A, R1, B>(
+  f: (a: A) => R.Reader<R1, B>
+) => <R2, E = never>(ma: ReaderEither<R2, E, A>) => ReaderEither<R1 & R2, E, A> = chainFirstReaderK as any
+
+/**
+ * @category instances
+ * @since 3.0.0
+ */
+export const FromEither: FromEither3<URI> = {
+  fromEither
+}
+
+/**
+ * Derivable from `FromEither`.
+ *
+ * @category natural transformations
+ * @since 3.0.0
+ */
+export const fromOption =
+  /*#__PURE__*/
+  fromOption_(FromEither)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const fromOptionK =
+  /*#__PURE__*/
+  fromOptionK_(FromEither)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainOptionK =
+  /*#__PURE__*/
+  chainOptionK_(FromEither, Chain)
+
+/**
+ * Derivable from `FromEither`.
+ *
+ * @category constructors
+ * @since 3.0.0
+ */
+export const fromPredicate =
+  /*#__PURE__*/
+  fromPredicate_(FromEither)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const filterOrElse =
+  /*#__PURE__*/
+  filterOrElse_(FromEither, Chain)
+
+/**
+ * Less strict version of [`filterOrElse`](#filterOrElse).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const filterOrElseW: {
+  <A, B extends A, E2>(refinement: Refinement<A, B>, onFalse: (a: A) => E2): <R, E1>(
+    ma: ReaderEither<R, E1, A>
+  ) => ReaderEither<R, E1 | E2, B>
+  <A, E2>(predicate: Predicate<A>, onFalse: (a: A) => E2): <R, E1, B extends A>(
+    mb: ReaderEither<R, E1, B>
+  ) => ReaderEither<R, E1 | E2, B>
+  <A, E2>(predicate: Predicate<A>, onFalse: (a: A) => E2): <R, E1>(
+    ma: ReaderEither<R, E1, A>
+  ) => ReaderEither<R, E1 | E2, A>
+} = filterOrElse
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const fromEitherK =
+  /*#__PURE__*/
+  fromEitherK_(FromEither)
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainEitherK =
+  /*#__PURE__*/
+  chainEitherK_(FromEither, Chain)
+
+/**
+ * Less strict version of [`chainEitherK`](#chainEitherK).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainEitherKW: <A, E2, B>(
+  f: (a: A) => E.Either<E2, B>
+) => <R, E1>(ma: ReaderEither<R, E1, A>) => ReaderEither<R, E1 | E2, B> = chainEitherK as any
+
+/**
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainFirstEitherK =
+  /*#__PURE__*/
+  chainFirstEitherK_(FromEither, Chain)
+
+/**
+ * Less strict version of [`chainFirstEitherK`](#chainfirsteitherk).
+ *
+ * @category combinators
+ * @since 3.0.0
+ */
+export const chainFirstEitherKW: <A, E2, B>(
+  f: (a: A) => E.Either<E2, B>
+) => <R, E1>(ma: ReaderEither<R, E1, A>) => ReaderEither<R, E1 | E2, A> = chainFirstEitherK as any
+
+// -------------------------------------------------------------------------------------
+// do notation
+// -------------------------------------------------------------------------------------
+
+/**
+ * @since 3.0.0
+ */
+export const Do: ReaderEither<unknown, never, {}> =
+  /*#__PURE__*/
+  of(_.emptyRecord)
+
+/**
+ * @since 3.0.0
+ */
+export const bindTo =
+  /*#__PURE__*/
+  bindTo_(Functor)
+
+/**
+ * @since 3.0.0
+ */
+export const bind =
+  /*#__PURE__*/
+  bind_(Chain)
+
+/**
+ * Less strict version of [`bind`](#bind).
+ *
+ * @since 3.0.0
+ */
+export const bindW: <N extends string, A, R2, E2, B>(
+  name: Exclude<N, keyof A>,
+  f: <A2 extends A>(a: A | A2) => ReaderEither<R2, E2, B>
+) => <R1, E1>(
+  fa: ReaderEither<R1, E1, A>
+) => ReaderEither<R1 & R2, E1 | E2, { readonly [K in keyof A | N]: K extends keyof A ? A[K] : B }> = bind as any
+
+// -------------------------------------------------------------------------------------
+// sequence S
+// -------------------------------------------------------------------------------------
+
+/**
+ * @since 3.0.0
+ */
+export const apS =
+  /*#__PURE__*/
+  apS_(Apply)
+
+/**
+ * Less strict version of [`apS`](#apS).
+ *
+ * @since 3.0.0
+ */
+export const apSW: <N extends string, A, R2, E2, B>(
+  name: Exclude<N, keyof A>,
+  fb: ReaderEither<R2, E2, B>
+) => <R1, E1>(
+  fa: ReaderEither<R1, E1, A>
+) => ReaderEither<R1 & R2, E1 | E2, { readonly [K in keyof A | N]: K extends keyof A ? A[K] : B }> = apS as any
+
+// -------------------------------------------------------------------------------------
+// sequence T
+// -------------------------------------------------------------------------------------
+
+/**
+ * @since 3.0.0
+ */
+export const ApT: ReaderEither<unknown, never, readonly []> =
+  /*#__PURE__*/
+  of(_.emptyReadonlyArray)
+
+/**
+ * @since 3.0.0
+ */
+export const tupled =
+  /*#__PURE__*/
+  tupled_(Functor)
+
+/**
+ * @since 3.0.0
+ */
+export const apT =
+  /*#__PURE__*/
+  apT_(Apply)
+
+/**
+ * Less strict version of [`apT`](#apT).
+ *
+ * @since 3.0.0
+ */
+export const apTW: <R2, E2, B>(
+  fb: ReaderEither<R2, E2, B>
+) => <R1, E1, A extends ReadonlyArray<unknown>>(
+  fas: ReaderEither<R1, E1, A>
+) => ReaderEither<R1 & R2, E1 | E2, readonly [...A, B]> = apT as any
+
+// -------------------------------------------------------------------------------------
+// utils
+// -------------------------------------------------------------------------------------
+
+/**
+ * Make sure that a resource is cleaned up in the event of an exception (\*). The release action is called regardless of
+ * whether the body action throws (\*) or returns.
+ *
+ * (\*) i.e. returns a `Left`
+ *
+ * @since 3.0.0
+ */
+export const bracket: <R, E, A, B>(
+  aquire: ReaderEither<R, E, A>,
+  use: (a: A) => ReaderEither<R, E, B>,
+  release: (a: A, e: E.Either<E, B>) => ReaderEither<R, E, void>
+) => ReaderEither<R, E, B> =
+  /*#__PURE__*/
+  ET.bracket(R.Monad)
+
+// -------------------------------------------------------------------------------------
+// array utils
+// -------------------------------------------------------------------------------------
+
+/**
+ * Equivalent to `ReadonlyNonEmptyArray#traverseWithIndex(Applicative)`.
+ *
+ * @since 3.0.0
+ */
+export const traverseReadonlyNonEmptyArrayWithIndex = <A, R, E, B>(
+  f: (index: number, a: A) => ReaderEither<R, E, B>
+): ((as: ReadonlyNonEmptyArray<A>) => ReaderEither<R, E, ReadonlyNonEmptyArray<B>>) =>
+  flow(R.traverseReadonlyNonEmptyArrayWithIndex(f), R.map(E.traverseReadonlyNonEmptyArrayWithIndex(SK)))
+
+/**
+ * Equivalent to `ReadonlyArray#traverseWithIndex(Applicative)`.
+ *
+ * @since 3.0.0
+ */
+export const traverseReadonlyArrayWithIndex = <A, R, E, B>(
+  f: (index: number, a: A) => ReaderEither<R, E, B>
+): ((as: ReadonlyArray<A>) => ReaderEither<R, E, ReadonlyArray<B>>) => {
+  const g = traverseReadonlyNonEmptyArrayWithIndex(f)
+  return (as) => (_.isNonEmpty(as) ? g(as) : ApT)
+}

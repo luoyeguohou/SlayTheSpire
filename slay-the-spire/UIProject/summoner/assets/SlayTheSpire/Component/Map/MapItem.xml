@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="128,128" opaque="false" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <controller name="iType" pages="0,chest,1,elite,2,event,3,monster,4,rest,5,shop" selected="0"/>
+  <controller name="outline" pages="0,,1," selected="0"/>
+  <displayList>
+    <loader id="n15_u26w" name="n15" xy="64,64" pivot="0.5,0.5" anchor="true" size="128,128" url="ui://dk6sz05tju7sen">
+      <gearDisplay controller="outline" pages="1"/>
+      <gearSize controller="button" pages="1,2,3" values="128,128,1.2,1.2|128,128,1.2,1.2|128,128,1.2,1.2" default="128,128,1,1"/>
+      <gearIcon controller="iType" pages="0,1,2,3,4,5" values="ui://dk6sz05tju7sen|ui://dk6sz05tju7sev|ui://dk6sz05tju7sex|ui://dk6sz05tju7sf9|ui://dk6sz05tju7sfc|ui://dk6sz05tju7sfh"/>
+    </loader>
+    <loader id="n14_u26w" name="n14" xy="64,64" pivot="0.5,0.5" anchor="true" size="128,128" url="ui://dk6sz05tju7sem" color="#565656">
+      <gearSize controller="button" pages="1,2,3" values="128,128,1.2,1.2|128,128,1.2,1.2|128,128,1.2,1.2" default="128,128,1,1"/>
+      <gearColor controller="button" pages="0,1,2,3" values="#565656|#111b24|#111b24|#111b24"/>
+      <gearIcon controller="iType" pages="0,1,2,4,5" values="ui://dk6sz05tju7sem|ui://dk6sz05tju7seu|ui://dk6sz05tju7sew|ui://dk6sz05tju7sfb|ui://dk6sz05tju7sfe" default="ui://dk6sz05tju7sf8"/>
+    </loader>
+  </displayList>
+  <Button/>
+  <transition name="t0"/>
+</component>

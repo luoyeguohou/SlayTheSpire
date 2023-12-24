@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="8gl2b56t">
+  <resources>
+    <component id="jviu0" name="Main.xml" path="/Components/Main/" exported="true"/>
+    <component id="jviu1" name="btnNormal.xml" path="/Components/Common/"/>
+    <component id="jviu2" name="Room.xml" path="/Components/Room/" exported="true"/>
+    <image id="jviu3" name="head-pic.jpg" path="/Images/"/>
+    <component id="jviu4" name="RoomItem.xml" path="/Components/Room/"/>
+    <component id="jviu5" name="GameToufu.xml" path="/Components/GameToufu/" exported="true"/>
+    <component id="jviu6" name="ToufuItem.xml" path="/Components/GameToufu/"/>
+    <component id="jviu7" name="ToufuResult.xml" path="/Components/GameToufu/" exported="true"/>
+    <component id="ph7a8" name="ToufuConfirm.xml" path="/Components/GameToufu/" exported="true"/>
+    <component id="ph7a9" name="ToufuGameEnd.xml" path="/Components/GameToufu/" exported="true"/>
+    <component id="dg4za" name="ToufuIcon.xml" path="/Components/GameToufu/"/>
+    <component id="qqgqb" name="ConfirmWin.xml" path="/Components/Common/" exported="true"/>
+    <image id="qqgqc" name="color-matching-in-ui-design3.png" path="/Images/"/>
+    <image id="qqgqd" name="btn.png" path="/Images/"/>
+    <image id="9lq7e" name="新建项目 (1).png" path="/Images/"/>
+    <component id="9lq7f" name="MainBg.xml" path="/Components/Main/"/>
+    <component id="9lq7g" name="ConfirmInput.xml" path="/Components/Common/" exported="true"/>
+    <image id="9lq7h" name="新建项目 (2).png" path="/Images/" scale="9grid" scale9grid="119,139,238,278"/>
+    <image id="fdzii" name="Princess Tofu_07.png" path="/Images/identity/"/>
+    <image id="fdzij" name="Princess Tofu_00 (1).png" path="/Images/identity/"/>
+    <image id="fdzik" name="Princess Tofu_01 (1).png" path="/Images/identity/"/>
+    <image id="fdzil" name="Princess Tofu_02.png" path="/Images/identity/"/>
+    <image id="fdzim" name="Princess Tofu_03.png" path="/Images/identity/"/>
+    <image id="fdzin" name="Princess Tofu_04.png" path="/Images/identity/"/>
+    <image id="fdzio" name="Princess Tofu_05.png" path="/Images/identity/"/>
+    <image id="fdzip" name="Princess Tofu_06.png" path="/Images/identity/"/>
+    <component id="fdziq" name="GameToufuNew.xml" path="/Components/GameToufu/" exported="true"/>
+    <image id="fdzir" name="新建项目 (4).png" path="/Images/identity/"/>
+    <image id="fdzis" name="新建项目 (5).png" path="/Images/identity/"/>
+    <image id="fdzit" name="新建项目 (3).png" path="/Images/identity/"/>
+    <image id="fdziu" name="新建项目 (6).png" path="/Images/identity/"/>
+    <component id="fdziv" name="ToufuItemNew.xml" path="/Components/GameToufu/"/>
+    <font id="tdobw" name="造字工房摩登.ttf" path="/Fonts/" renderMode="" samplePointSize="16"/>
+    <font id="tdobx" name="Misto.ttf" path="/Fonts/" renderMode="" samplePointSize="16"/>
+    <font id="tdoby" name="whitechapel-bold.otf" path="/Fonts/" renderMode="" samplePointSize="16"/>
+    <image id="pxzdz" name="cardui.png" path="/Images/identity/"/>
+    <image id="pxzd10" name="cardui2.png" path="/Images/identity/"/>
+    <image id="pxzd11" name="cardui3.png" path="/Images/identity/"/>
+    <image id="pxzd12" name="cardui4.png" path="/Images/identity/"/>
+  </resources>
+  <publish name="" genCode="true"/>
+</packageDescription>

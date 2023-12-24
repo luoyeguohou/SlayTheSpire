@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="620,180">
+  <controller name="havePlayer" pages="0,,1," selected="0"/>
+  <controller name="isPrince" pages="0,,1," selected="1"/>
+  <controller name="identity" pages="0,,1,,2,,3,,4,,5,,6,,7," selected="0"/>
+  <displayList>
+    <component id="n1_jviu" name="imgPlayer" src="jviu4" fileName="Components/Room/RoomItem.xml" xy="0,0" scale="0.8,0.8">
+      <gearDisplay controller="havePlayer" pages="1"/>
+    </component>
+    <graph id="n6_jviu" name="n6" xy="179,8" size="441,164" type="rect" fillColor="#ff545454"/>
+    <text id="n2_jviu" name="txtIdentity" xy="205,98" size="266,51" fontSize="32" color="#ffffff" autoSize="none" text="身份：豆腐王子">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearText controller="identity" pages="1,2,3,4,5,6,7" values="身份：豆腐公主|身份：豆腐厨师|身份：豆腐女王|身份：豆腐大臣|身份：豆腐侍卫|身份：布丁间谍|身份：豆腐女仆" default="身份：豆腐王子"/>
+      <gearDisplay2 controller="identity" pages="0" condition="1"/>
+    </text>
+    <graph id="n3_jviu" name="imgSelf" xy="211,49" size="55,48" type="rect" lineSize="0" fillColor="#ffcc0000">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearColor controller="identity" pages="0,1,2,3" values="#cc0000|#cc0000|#66ff00|#0066ff" default="#66ff00"/>
+      <gearDisplay2 controller="identity" pages="0" condition="1"/>
+    </graph>
+    <graph id="n4_jviu" name="imgWinCond" xy="331,50" size="55,48" type="rect" lineSize="0" fillColor="#ffcc0000">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearColor controller="identity" pages="0,1,2,3,4,5" values="#cc0000|#cc0000|#cc0000|#0066ff|#0066ff|#0066ff" default="#66ff00"/>
+      <gearDisplay2 controller="identity" pages="0" condition="1"/>
+    </graph>
+    <text id="n5_jviu" name="txtWinResult" xy="385,51" size="127,44" fontSize="32" color="#ffffff" autoSize="none" text="金币*2">
+      <gearDisplay controller="isPrince" pages="0"/>
+      <gearText controller="identity" pages="2,3,4,5,6,7" values="金币*1|金币*1|金币*1|金币*1|金币*1|金币*1" default="金币*2"/>
+      <gearDisplay2 controller="identity" pages="0" condition="1"/>
+    </text>
+    <component id="n7_jviu" name="btnChoose" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="511,60" size="94,55">
+      <gearDisplay controller="isPrince" pages="1"/>
+      <gearDisplay2 controller="identity" pages="1,2,3,4,5,6,7" condition="0"/>
+      <Button title="ta是公主" titleFontSize="19"/>
+    </component>
+    <text id="n8_jviu" name="txtGold" xy="191,7" size="231,44" fontSize="32" color="#ffffff" autoSize="none" text="当前金币：2"/>
+    <graph id="n9_jviu" name="n9" xy="4,2" size="172,174" type="rect" fillColor="#ff4a4a4a">
+      <gearDisplay controller="havePlayer" pages="0"/>
+    </graph>
+    <text id="n10_jviu" name="txtEmpSeat" xy="15,50" size="151,72" fontSize="34" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="空座位1">
+      <gearDisplay controller="havePlayer" pages="0"/>
+    </text>
+  </displayList>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,1620">
+  <displayList>
+    <image id="n3_fdzi" name="n3" src="9lq7h" fileName="Images/新建项目 (2).png" xy="71,525" size="606,544" color="#e0e0e0">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <component id="n1_qqgq" name="btnConfirm" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="216,887" size="335,101">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <Button title="确认" titleFontSize="32"/>
+    </component>
+    <text id="n2_qqgq" name="title" xy="170,627" size="431,198" fontSize="61" color="#272245" autoSize="none" text="修改名字成功">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

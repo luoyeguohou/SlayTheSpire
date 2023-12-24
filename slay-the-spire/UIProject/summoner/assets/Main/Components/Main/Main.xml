@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,1620">
+  <displayList>
+    <graph id="n0_jviu" name="n0" xy="0,0" size="750,1620" type="rect" lineSize="0" fillColor="#fff2f2f2">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <component id="n80_9lq7" name="n80" src="9lq7f" fileName="Components/Main/MainBg.xml" xy="-109,-164"/>
+    <component id="n2_jviu" name="btnCreate" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="200,1204" size="481,173" scale="0.7,0.7">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+      <Button title="创建房间" titleFontSize="54"/>
+    </component>
+    <component id="n3_jviu" name="btnJoin" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="200,1071" size="481,173" scale="0.7,0.7">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+      <Button title="加入房间" titleFontSize="54"/>
+    </component>
+    <component id="n5_dg4z" name="btnChangeName" src="jviu1" fileName="Components/Common/btnNormal.xml" xy="543,105" size="481,173" scale="0.4,0.4">
+      <relation target="" sidePair="right-right,top-top"/>
+      <Button title="改名字" titleFontSize="54"/>
+    </component>
+    <text id="n14_9lq7" name="txt" xy="32,416" size="696,137" fontSize="98" color="#3b365c" align="center" vAlign="bottom" autoSize="none" shadowColor="#000000" shadowOffset="2,2" text="今天你桌游了吗">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+    <text id="n82_9lq7" name="txtName" xy="526,35" size="205,63" fontSize="34" color="#272245" align="right" vAlign="middle" autoSize="none" text="未命名">
+      <relation target="" sidePair="right-right,top-top"/>
+    </text>
+  </displayList>
+</component>

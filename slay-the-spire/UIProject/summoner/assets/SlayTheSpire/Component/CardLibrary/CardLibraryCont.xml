@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080" overflow="scroll">
+  <controller name="color" pages="0,,1,,2,,3,,4,,5," selected="0">
+    <action type="change_page" fromPage="" toPage="" objectId="n9_l9i0" controller="color" targetPage="~1"/>
+  </controller>
+  <displayList>
+    <image id="n7_l9i0" name="n7" src="icsx2qx" fileName="NewImages/cardlibrary/colorTabBar.png" xy="131,72" size="1658,102" color="#165a81"/>
+    <list id="n8_l9i0" name="n8" xy="208,27" size="1503,77" layout="row" overflow="scroll" colGap="-38" defaultItem="ui://dk6sz05tl9i0ca" selectionController="color">
+      <relation target="" sidePair="center-center,top-top"/>
+      <item controllers="color,5"/>
+      <item controllers="color,3"/>
+      <item controllers="color,1"/>
+      <item controllers="color,4"/>
+      <item controllers="color,2"/>
+      <item controllers="color,0"/>
+    </list>
+    <component id="n9_l9i0" name="n9" src="l9i0ca" fileName="Component/CardLibrary/BtnTag.xml" xy="345,96" pivot="0.5,1" anchor="true" scale="1.2,1.2" controller="light,1">
+      <gearXY controller="color" pages="0,1,2,3,4,5" values="345,96|594,96|814,96|1047,96|1287,96|1519,96"/>
+    </component>
+    <list id="n10_l9i0" name="lstCard" xy="143,158" size="5523,4571" scale="0.3,0.3" layout="flow_hz" lineGap="73" colGap="90" defaultItem="ui://dk6sz05tdip31e">
+      <relation target="" sidePair="width-width,center-center"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

@@ -1,0 +1,14 @@
+{
+  "langFiles": [
+    {
+      "name": "english",
+      "path": "D:\\go-util\\i18n\\english.xml",
+      "fontName": ""
+    },
+    {
+      "name": "chinese",
+      "path": "D:\\cocos\\summoner\\chinese.xml",
+      "fontName": ""
+    }
+  ]
+}

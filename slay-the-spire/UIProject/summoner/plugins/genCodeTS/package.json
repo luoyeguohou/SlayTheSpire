@@ -1,0 +1,11 @@
+{
+  "name": "genCodeTS",
+  "displayName": "genCodeTS",
+  "description": "genCodeTS",
+  "version": "1.0",
+  "author": {
+    "name": "gaohc"
+  },
+  "icon": "",
+  "main": "main.js"
+}

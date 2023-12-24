@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <loader id="n2_s5vq" name="n2" xy="0,-194" size="1920,1469" url="ui://dk6sz05ticsx2ai" align="center" vAlign="middle" fill="scaleMatchWidth">
+      <relation target="" sidePair="width-width,middle-middle"/>
+    </loader>
+    <loader id="n29_s5vq" name="n29" xy="-2,-53" size="1920,1654" url="ui://dk6sz05ts5vqe6" align="center" fill="scaleMatchWidth">
+      <relation target="" sidePair="width-width"/>
+    </loader>
+    <image id="n3_s5vq" name="n3" src="s5vqdh" fileName="NewImages/scene-ui/title/Old/title3.png" xy="-120,297"/>
+    <image id="n6_s5vq" name="n6" src="s5vqdk" fileName="NewImages/scene-ui/title/Old/title4.png" xy="447,653"/>
+    <image id="n11_s5vq" name="n11" src="s5vqdr" fileName="NewImages/scene-ui/title/Old/title6.png" xy="1095,-1093"/>
+    <image id="n12_s5vq" name="n12" src="s5vqds" fileName="NewImages/scene-ui/title/Old/title6 (1).png" xy="-124,811"/>
+    <image id="n15_s5vq" name="n15" src="s5vqdt" fileName="NewImages/scene-ui/title/Old/title6 (2).png" xy="1440,405"/>
+    <image id="n16_s5vq" name="n16" src="s5vqdu" fileName="NewImages/scene-ui/title/Old/title6 (3).png" xy="2274,464"/>
+    <image id="n18_s5vq" name="n18" src="s5vqdw" fileName="NewImages/scene-ui/title/Old/title6 (5).png" xy="2591,259"/>
+    <image id="n23_s5vq" name="n23" src="s5vqdg" fileName="NewImages/scene-ui/title/Old/topCloud7.png" xy="1661,589"/>
+    <image id="n4_s5vq" name="n4" src="s5vqdi" fileName="NewImages/scene-ui/title/Old/title3 (2).png" xy="2101,22"/>
+    <image id="n8_s5vq" name="n8" src="s5vqdn" fileName="NewImages/scene-ui/title/Old/title5.png" xy="749,69"/>
+    <image id="n9_s5vq" name="n9" src="s5vqdo" fileName="NewImages/scene-ui/title/Old/title5 (1).png" xy="-391,388"/>
+    <image id="n10_s5vq" name="n10" src="s5vqdp" fileName="NewImages/scene-ui/title/Old/title5 (2).png" xy="1677,153"/>
+    <image id="n17_s5vq" name="n17" src="s5vqdv" fileName="NewImages/scene-ui/title/Old/title6 (4).png" xy="1813,502"/>
+    <image id="n19_s5vq" name="n19" src="s5vqdx" fileName="NewImages/scene-ui/title/Old/title6 (6).png" xy="546,798"/>
+    <image id="n20_s5vq" name="n20" src="s5vqdy" fileName="NewImages/scene-ui/title/Old/title6 (7).png" xy="1243,693"/>
+    <image id="n21_s5vq" name="n21" src="s5vqdz" fileName="NewImages/scene-ui/title/Old/title6 (8).png" xy="1180,563"/>
+    <image id="n5_s5vq" name="n5" src="s5vqdj" fileName="NewImages/scene-ui/title/Old/title3 (3).png" xy="-554,190"/>
+    <image id="n22_s5vq" name="n22" src="s5vqe0" fileName="NewImages/scene-ui/title/Old/title6 (9).png" xy="137,745"/>
+    <image id="n27_s5vq" name="n27" src="s5vqe3" fileName="NewImages/scene-ui/title/Old/title6 (10) (1).png" xy="1541,705"/>
+    <image id="n14_s5vq" name="n14" src="icsx2bd" fileName="NewImages/scene-ui/title/logo2.png" xy="703,239">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <component id="n31_ju7s" name="n31" src="ju7se8" fileName="Component/Welcome/BtnCommon.xml" xy="68,620">
+      <relation target="" sidePair="bottom-bottom"/>
+    </component>
+    <component id="n32_ju7s" name="n32" src="ju7se8" fileName="Component/Welcome/BtnCommon.xml" xy="67,684">
+      <relation target="" sidePair="bottom-bottom"/>
+      <Button title="百科大全"/>
+    </component>
+    <component id="n33_ju7s" name="n33" src="ju7se8" fileName="Component/Welcome/BtnCommon.xml" xy="69,751">
+      <relation target="" sidePair="bottom-bottom"/>
+      <Button title="统计内容"/>
+    </component>
+    <component id="n34_ju7s" name="n34" src="ju7se8" fileName="Component/Welcome/BtnCommon.xml" xy="68,821">
+      <relation target="" sidePair="bottom-bottom"/>
+      <Button title="设定"/>
+    </component>
+    <component id="n35_ju7s" name="n35" src="ju7se8" fileName="Component/Welcome/BtnCommon.xml" xy="69,887">
+      <relation target="" sidePair="bottom-bottom"/>
+      <Button title="补丁内容清单"/>
+    </component>
+    <component id="n36_ju7s" name="n36" src="ju7se8" fileName="Component/Welcome/BtnCommon.xml" xy="69,955">
+      <relation target="" sidePair="bottom-bottom"/>
+      <Button title="退出"/>
+    </component>
+    <image id="n37_ju7s" name="n37" src="icsx1fu" fileName="NewImages/profile/1.png" xy="55,24"/>
+    <text id="n38_ju7s" name="n38" xy="156,26" size="185,70" fontSize="38" color="#f6d610" vAlign="middle" autoSize="none" strokeColor="#333333" text="用户名"/>
+    <text id="n39_ju7s" name="n39" xy="158,78" size="146,43" fontSize="30" color="#35bfcb" autoSize="none" strokeColor="#333333" text="点击编辑"/>
+  </displayList>
+  <transition name="t0">
+    <item time="0" type="XY" target="n10_s5vq" tween="true" startValue="1677,153" endValue="-1677,153" duration="3168"/>
+    <item time="0" type="XY" target="n11_s5vq" tween="true" startValue="1095,-1093" endValue="-558,239" duration="3168"/>
+    <item time="0" type="XY" target="n12_s5vq" tween="true" startValue="-124,811" endValue="2531,796" duration="3168"/>
+    <item time="0" type="XY" target="n15_s5vq" tween="true" startValue="1440,405" endValue="-937,420" duration="3168"/>
+    <item time="0" type="XY" target="n16_s5vq" tween="true" startValue="2274,464" endValue="-1203,575" duration="3168"/>
+    <item time="0" type="XY" target="n17_s5vq" tween="true" startValue="1813.5,502.5" endValue="-1542.5,513.5" duration="3168"/>
+    <item time="0" type="XY" target="n18_s5vq" tween="true" startValue="2591,259" endValue="-1350,314" duration="3168"/>
+    <item time="0" type="XY" target="n19_s5vq" tween="true" startValue="546,798.5" endValue="2997,803.5" duration="3168"/>
+    <item time="0" type="XY" target="n20_s5vq" tween="true" startValue="1243,693" endValue="3549,673" duration="3168"/>
+    <item time="0" type="XY" target="n21_s5vq" tween="true" startValue="1180.5,563.5" endValue="-1296.5,596.5" duration="3168"/>
+    <item time="0" type="XY" target="n22_s5vq" tween="true" startValue="137,745" endValue="2736,740" duration="3168"/>
+    <item time="0" type="XY" target="n23_s5vq" tween="true" startValue="1661,589" endValue="-1375,673" duration="3168"/>
+    <item time="0" type="XY" target="n27_s5vq" tween="true" startValue="1541,705" endValue="-1063,751" duration="3168"/>
+    <item time="0" type="XY" target="n3_s5vq" tween="true" startValue="-120,297" endValue="1883,287" duration="3168"/>
+    <item time="0" type="XY" target="n4_s5vq" tween="true" startValue="2101,22" endValue="-1777,55" duration="3168"/>
+    <item time="0" type="XY" target="n5_s5vq" tween="true" startValue="-554,190" endValue="1859,99" duration="3168"/>
+    <item time="0" type="XY" target="n6_s5vq" tween="true" startValue="447,653" endValue="-1261,653" duration="3168"/>
+    <item time="0" type="XY" target="n8_s5vq" tween="true" startValue="749,69" endValue="-1387,54" duration="3168"/>
+    <item time="0" type="XY" target="n9_s5vq" tween="true" startValue="-391,388" endValue="2233,353" duration="3168"/>
+  </transition>
+</component>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1920,1080">
+  <displayList>
+    <graph id="n5_ju7s" name="n5" xy="0,0" size="1920,1080" type="rect" lineSize="0" fillColor="#ff000000"/>
+    <component id="n6_ju7s" name="cont" src="ju7sfu" fileName="Component/Map/MapCont.xml" xy="0,0"/>
+  </displayList>
+</component>

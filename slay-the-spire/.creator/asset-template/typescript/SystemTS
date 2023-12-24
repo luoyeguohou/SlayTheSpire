@@ -1,0 +1,10 @@
+import { System } from "../../third-party/kick-knock/src";
+import { ecsLoader } from "../ecs-loader";
+
+export class <%CamelCaseClassName%> extends System {
+    onAddedToEngine() {
+    }
+
+    onRemovedFromEngine() {
+    }
+}
