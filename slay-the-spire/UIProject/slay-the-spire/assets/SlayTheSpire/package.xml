@@ -2687,8 +2687,8 @@
     <component id="gaw4275" name="MapItem.xml" path="/Component/Map/"/>
     <component id="gaw4276" name="MapLine.xml" path="/Component/Map/"/>
     <component id="gaw4277" name="MapLineItem.xml" path="/Component/Map/"/>
-    <component id="gaw4278" name="BtnCommon.xml" path="/Component/Welcome/"/>
-    <component id="gaw4279" name="Welcome.xml" path="/Component/Welcome/"/>
+    <component id="gaw4278" name="BtnCommon.xml" path="/Component/Title/"/>
+    <component id="gaw4279" name="Title.xml" path="/Component/Title/"/>
     <image id="gaw429g" name="powerful.png" path="/images/achievements/locked/"/>
     <image id="gaw429h" name="purity.png" path="/images/achievements/locked/"/>
     <image id="gaw429i" name="rubyPlus.png" path="/images/achievements/locked/"/>

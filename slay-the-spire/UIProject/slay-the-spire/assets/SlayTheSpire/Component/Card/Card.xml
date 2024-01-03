@@ -1,67 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="608,838">
-  <controller name="color" pages="5,red,6,green,1,blue,4,purple,2,coloress,0,black" selected="0"/>
-  <controller name="cType" pages="0,atk,1,skill,2,power,3,status,4,zuzhou" selected="0">
-    <action type="change_page" fromPage="" toPage="" objectId="n1_dip3" controller="cType" targetPage="~1"/>
-    <action type="change_page" fromPage="" toPage="" objectId="n2_dip3" controller="cType" targetPage="~1"/>
-    <action type="change_page" fromPage="" toPage="" objectId="n4_dip3" controller="cType" targetPage="~1"/>
-    <action type="change_page" fromPage="" toPage="" objectId="n5_dip3" controller="cType" targetPage="~1"/>
-    <action type="change_page" fromPage="" toPage="" objectId="n6_dip3" controller="cType" targetPage="~1"/>
+  <controller name="color" pages="5,red,6,green,1,blue,4,purple,2,coloress,0,black" selected="4">
+    <action type="change_page" fromPage="" toPage="" objectId="n22_ljyz" controller="cType" targetPage="~2"/>
   </controller>
-  <controller name="rare" pages="0,common,1,uncommon,2,rare" selected="0"/>
-  <controller name="costColor" pages="0,red,1,green,2,blue,3,purple,4,colorless,5,none" selected="0"/>
+  <controller name="cType" pages="0,atk,1,skill,2,power,3,status,4,zuzhou" selected="1">
+    <action type="change_page" fromPage="" toPage="1,3,4" objectId="n22_ljyz" controller="cType" targetPage="1"/>
+    <action type="change_page" fromPage="" toPage="0,2" objectId="n22_ljyz" controller="cType" targetPage="~2"/>
+    <action type="change_page" fromPage="" toPage="1,3,4" objectId="n28_ljyz" controller="cType" targetPage="1"/>
+    <action type="change_page" fromPage="" toPage="0,2" objectId="n28_ljyz" controller="cType" targetPage="~2"/>
+    <action type="change_page" fromPage="" toPage="1,3,4" objectId="n27_ljyz" controller="cType" targetPage="1"/>
+    <action type="change_page" fromPage="" toPage="0,2" objectId="n27_ljyz" controller="cType" targetPage="~2"/>
+    <action type="change_page" fromPage="" toPage="1,3,4" objectId="n24_ljyz" controller="cType" targetPage="1"/>
+    <action type="change_page" fromPage="" toPage="0,2" objectId="n24_ljyz" controller="cType" targetPage="~2"/>
+    <action type="change_page" fromPage="" toPage="1,3,4" objectId="n25_ljyz" controller="cType" targetPage="1"/>
+    <action type="change_page" fromPage="" toPage="0,2" objectId="n25_ljyz" controller="cType" targetPage="~2"/>
+  </controller>
+  <controller name="rare" pages="0,common,1,uncommon,2,rare" selected="0">
+    <action type="change_page" fromPage="" toPage="" objectId="n19_p657" controller="rare" targetPage="~2"/>
+    <action type="change_page" fromPage="" toPage="" objectId="n29_ljyz" controller="rare" targetPage="~2"/>
+    <action type="change_page" fromPage="" toPage="" objectId="n30_ljyz" controller="rare" targetPage="~2"/>
+  </controller>
+  <controller name="costColor" pages="0,red,1,green,2,blue,3,purple,4,colorless,5,none" selected="5"/>
   <displayList>
-    <component id="n0_dip3" name="n0" src="ilh71c" fileName="CardBg/BlackCard.xml" xy="0,0">
+    <component id="n23_ljyz" name="n23" src="gaw426p" fileName="Component/Card/CardBg/BlackCard.xml" xy="0,0">
       <gearDisplay controller="color" pages="0"/>
     </component>
-    <component id="n1_dip3" name="n1" src="ilh71a" fileName="CardBg/BlueCard.xml" xy="0,0">
+    <component id="n24_ljyz" name="n24" src="gaw426q" fileName="Component/Card/CardBg/BlueCard.xml" xy="0,0">
       <gearDisplay controller="color" pages="1"/>
     </component>
-    <component id="n2_dip3" name="n2" src="ilh71b" fileName="CardBg/ColoressCard.xml" xy="0,0">
+    <component id="n25_ljyz" name="n25" src="gaw426r" fileName="Component/Card/CardBg/ColoressCard.xml" xy="0,0">
       <gearDisplay controller="color" pages="2"/>
     </component>
-    <component id="n4_dip3" name="n4" src="ilh719" fileName="CardBg/GreenCard.xml" xy="0,0">
-      <gearDisplay controller="color" pages="6"/>
-    </component>
-    <component id="n5_dip3" name="n5" src="ilh718" fileName="CardBg/PurpleCard.xml" xy="0,0">
+    <component id="n27_ljyz" name="n27" src="gaw426u" fileName="Component/Card/CardBg/PurpleCard.xml" xy="0,0">
       <gearDisplay controller="color" pages="4"/>
     </component>
-    <component id="n6_dip3" name="n6" src="ilh717" fileName="CardBg/RedCard.xml" xy="0,0">
+    <component id="n28_ljyz" name="n28" src="gaw426t" fileName="Component/Card/CardBg/GreenCard.xml" xy="0,0">
+      <gearDisplay controller="color" pages="6"/>
+    </component>
+    <component id="n22_ljyz" name="n22" src="gaw426v" fileName="Component/Card/CardBg/RedCard.xml" xy="-1,-3">
       <gearDisplay controller="color" pages="5"/>
     </component>
-    <loader id="n12_dip3" name="imgPower" xy="39,79" size="530,403" url="ui://dk6sz05tdip34h" fill="scaleFree">
+    <loader id="n12_dip3" name="imgPower" xy="53,89" size="504,403" url="ui://2acs29eugaw42l7">
       <gearDisplay controller="cType" pages="2"/>
     </loader>
-    <loader id="n13_dip3" name="imgSkill" xy="41,56" size="525,399" url="ui://dk6sz05tdip39v" fill="scaleFree">
+    <loader id="n13_dip3" name="imgSkill" xy="57,84" size="525,399" url="ui://2acs29eugaw42nf">
       <gearDisplay controller="cType" pages="1,3,4"/>
     </loader>
-    <loader id="n14_dip3" name="imgAtk" xy="42,78" size="529,402" url="ui://dk6sz05tdip35h" fill="scaleFree">
+    <loader id="n14_dip3" name="imgAtk" xy="51,88" size="498,402" url="ui://2acs29eugaw42kn">
       <gearDisplay controller="cType" pages="0"/>
     </loader>
-    <component id="n8_dip3" name="n8" src="dip31f" fileName="CardFrame/AtkFrame.xml" xy="-230,-107" scale="1.039,1.039">
+    <component id="n19_p657" name="n19" src="gaw426w" fileName="Component/Card/CardFrame/AtkFrame.xml" xy="-210,-90">
       <gearDisplay controller="cType" pages="0"/>
     </component>
-    <component id="n10_dip3" name="n10" src="dip31g" fileName="CardFrame/SkillFrame.xml" xy="-231,-122" scale="1.039,1.039">
-      <gearDisplay controller="cType" pages="1,3,4"/>
-    </component>
-    <component id="n9_dip3" name="n9" src="dip31h" fileName="CardFrame/PowerFrame.xml" xy="-227,-103" scale="1.039,1.039">
+    <component id="n29_ljyz" name="n29" src="gaw426x" fileName="Component/Card/CardFrame/PowerFrame.xml" xy="-210,-93">
       <gearDisplay controller="cType" pages="2"/>
     </component>
-    <loader id="n7_dip3" name="n7" xy="-203,-129" size="1024,1024" url="ui://dk6sz05tilh70">
-      <gearIcon controller="rare" pages="1,2" values="ui://dk6sz05tilh7o|ui://dk6sz05tilh7n" default="ui://dk6sz05tilh70"/>
-    </loader>
-    <loader id="n11_dip3" name="n11" xy="-61,-36" size="193,193" url="ui://dk6sz05tilh72" align="center" vAlign="middle" fill="scale">
-      <gearDisplay controller="costColor" pages="0,1,2,3,4"/>
-      <gearIcon controller="costColor" pages="1,2,3,4" values="ui://dk6sz05tilh79|ui://dk6sz05tilh7v|ui://dk6sz05tilh71|ui://dk6sz05tilh7l" default="ui://dk6sz05tilh72"/>
-    </loader>
-    <text id="n15_dip3" name="txtCost" xy="-42,-14" size="153,154" fontSize="102" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" bold="true" strokeColor="#666666" strokeSize="3" shadowColor="#333333" shadowOffset="6,4" singleLine="true" text="1">
-      <gearDisplay controller="costColor" pages="0,1,2,3,4"/>
-    </text>
+    <component id="n30_ljyz" name="n30" src="gaw426y" fileName="Component/Card/CardFrame/SkillFrame.xml" xy="-208,-101">
+      <gearDisplay controller="cType" pages="1,3,4"/>
+    </component>
+    <image id="n21_p657" name="n21" src="gaw4357" fileName="images/card-ui/banner_common.png" xy="-200,-125"/>
     <text id="n16_dip3" name="txtName" xy="102,-30" size="400,154" fontSize="57" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" bold="true" strokeColor="#000000" strokeSize="2" shadowColor="#666666" shadowOffset="6,4" singleLine="true" text="金属化"/>
-    <text id="n17_dip3" name="n17" xy="225,440" size="150,52" fontSize="36" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" bold="true" strokeColor="#000000" strokeSize="2" shadowColor="#666666" shadowOffset="6,4" singleLine="true" text="攻击">
-      <gearXY controller="cType" pages="0,2" values="225,440|229,444" default="225,428"/>
+    <text id="n17_dip3" name="n17" xy="231,428" size="150,52" fontSize="36" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" bold="true" strokeColor="#000000" strokeSize="2" shadowColor="#666666" shadowOffset="6,4" singleLine="true" text="防御">
+      <gearXY controller="cType" pages="0,1,2" values="227,437|231,428|229,434" default="225,428"/>
       <gearText controller="cType" pages="0,1,3,4" values="攻击|防御|状态|诅咒" default="能力"/>
     </text>
     <richtext id="n18_dip3" name="txtCont" xy="65,502" size="481,276" visible="false" fontSize="51" color="#ffffff" vAlign="middle" autoSize="none" bold="true" shadowColor="#000000" shadowOffset="5,7" text="在你的回合结束时，获得3点格挡。"/>
+    <loader id="n11_dip3" name="imgOrb" xy="-62,-32" size="193,193" url="ui://dk6sz05tilh72" align="center" vAlign="middle" fill="scale">
+      <gearDisplay controller="costColor" pages="0,1,2,3,4"/>
+      <gearIcon controller="costColor" pages="0,1,2,3,4" values="ui://2acs29eugaw42li|ui://2acs29eugaw42o6|ui://2acs29eugaw432z|ui://2acs29eugaw42lh|ui://2acs29eugaw42vl" default="ui://dk6sz05tilh72"/>
+    </loader>
+    <text id="n15_dip3" name="txtCost" xy="-47,-11" size="153,154" fontSize="102" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" bold="true" strokeColor="#666666" strokeSize="3" shadowColor="#333333" shadowOffset="6,4" singleLine="true" text="1">
+      <gearDisplay controller="costColor" pages="0,1,2,3,4"/>
+    </text>
   </displayList>
 </component>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="16,16">
   <displayList>
-    <image id="n0_u26w" name="n0" src="ju7set" fileName="Images/Map/dot1.png" xy="8,16" pivot="0.5,1" anchor="true" color="#565656"/>
+    <image id="n0_u26w" name="n0" src="gaw469" fileName="images/map/dot1.png" xy="8,16" pivot="0.5,1" anchor="true" color="#565656"/>
   </displayList>
 </component>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="608,839">
-  <controller name="cType" exported="true" pages="0,atk,1,skill,2,power" selected="0"/>
+  <controller name="cType" exported="true" pages="0,atk,1,skill,2,power" selected="2"/>
   <displayList>
-    <loader id="n0_ilh7" name="n0" xy="302,418" pivot="0.5,0.5" anchor="true" size="1024,1026" url="ui://dk6sz05tilh7t" fill="scaleFree">
-      <gearIcon controller="cType" pages="0,1,2" values="ui://dk6sz05tilh7t|ui://dk6sz05tilh7m|ui://dk6sz05tilh7z"/>
+    <loader id="n0_ilh7" name="n0" xy="302,418" pivot="0.5,0.5" anchor="true" size="1024,1026" url="ui://2acs29eugaw435k" fill="scaleFree">
+      <gearIcon controller="cType" pages="0,1,2" values="ui://2acs29eugaw435e|ui://2acs29eugaw42vm|ui://2acs29eugaw435k"/>
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
   </displayList>

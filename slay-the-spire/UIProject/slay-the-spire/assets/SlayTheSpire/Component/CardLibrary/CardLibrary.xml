@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1920,1080">
   <displayList>
-    <component id="n11_l9i0" name="cont" src="l9i0c9" fileName="CardLibraryCont.xml" xy="0,0"/>
+    <component id="n11_l9i0" name="cont" src="gaw4271" fileName="Component/CardLibrary/CardLibraryCont.xml" xy="0,0"/>
   </displayList>
 </component>

@@ -3,9 +3,9 @@
   <controller name="light" exported="true" pages="0,,1," selected="0"/>
   <controller name="color" exported="true" pages="5,,3,,1,,4,,2,,0," selected="5"/>
   <displayList>
-    <loader id="n4_l9i0" name="n4" xy="0,0" size="274,68" url="ui://dk6sz05ticsx2qz" color="#7f7f7f">
+    <loader id="n4_l9i0" name="n4" xy="0,0" size="274,68" url="ui://2acs29eugaw42m5" color="#7f7f7f">
       <gearColor controller="light" pages="0,1" values="#7f7f7f|#ffffff"/>
-      <gearIcon controller="color" pages="5,3,1,4,2,0" values="ui://dk6sz05ticsx2r2|ui://dk6sz05ticsx2r1|ui://dk6sz05ticsx2qv|ui://dk6sz05ticsx2re|ui://dk6sz05ticsx2qw|ui://dk6sz05ticsx2qz"/>
+      <gearIcon controller="color" pages="5,3,1,4,2,0" values="ui://2acs29eugaw42m8|ui://2acs29eugaw42m6|ui://2acs29eugaw42m1|ui://2acs29eugaw42m7|ui://2acs29eugaw42m2|ui://2acs29eugaw42m5"/>
     </loader>
     <text id="n5_l9i0" name="n5" xy="69,17" size="136,49" fontSize="33" color="#ffffff" align="center" vAlign="middle" autoSize="none" strokeColor="#000000" text="诅咒">
       <gearText controller="color" pages="3,1,4,2,0" values="绿色|蓝色|紫色|无色|诅咒" default="红色"/>

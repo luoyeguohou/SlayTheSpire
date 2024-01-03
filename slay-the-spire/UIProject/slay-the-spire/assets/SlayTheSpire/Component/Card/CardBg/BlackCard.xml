@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="608,838">
   <displayList>
-    <loader id="n0_ilh7" name="n0" xy="304,419" pivot="0.5,0.5" anchor="true" size="1024,1025" url="ui://dk6sz05tilh710" fill="scaleFree">
+    <loader id="n0_ilh7" name="n0" xy="304,419" pivot="0.5,0.5" anchor="true" size="1024,1025" url="ui://2acs29eugaw435l" fill="scaleFree">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
     <loader3D id="n1_riia" name="n1" xy="268,257" size="100,100" url="ui://2acs29euriia3ai" animation="Idle" skin="" loop="true"/>

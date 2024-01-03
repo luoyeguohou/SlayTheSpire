@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="608,838">
   <displayList>
-    <loader id="n0_ilh7" name="n0" xy="304,419" pivot="0.5,0.5" anchor="true" size="1024,1025" url="ui://dk6sz05tilh712" fill="scaleFree">
+    <loader id="n0_ilh7" name="n0" xy="304,419" pivot="0.5,0.5" anchor="true" size="1024,1025" url="ui://2acs29eugaw435n" fill="scaleFree">
       <relation target="" sidePair="width-width,height-height"/>
     </loader>
   </displayList>
